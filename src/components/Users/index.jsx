@@ -27,11 +27,11 @@ export const Users = ({ items, isLoading, onChangeSearchValue, searchValue }) =>
           {
             items
               .filter(el => {
-                const fullName = el.first_name + el.last_name;
-                return fullName.includes(searchValue)
+                const fullName = (el.first_name + el.last_name).toLowerCase();
+                return fullName.includes(searchValue.toLowerCase()) || el.email.toLowerCase().includes(searchValue.toLowerCase())
               })
               .map(obj => (
-              <User key={obj.id} {...obj}/>
+              <User  key={obj.id} {...obj}/>
               )
           )}
         </ul>
