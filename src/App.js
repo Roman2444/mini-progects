@@ -26,9 +26,26 @@ const onChangeSearchValue = (ev) => {
   setSearchValue(ev);
 }
 
+const onClickInvite = (id) => {
+  if (invites.includes(id)) {
+    setInvites(prev => prev.filter(el => el !== id));
+  } else {
+    setInvites((prev) => [...prev, id]);
+  }
+  console.log(invites);
+  console.log(id);
+}
+
   return (
     <div className="App">
-      <Users onChangeSearchValue={onChangeSearchValue} searchValue={searchValue} items={users} isLoading={isLoading}/>
+      <Users 
+        onChangeSearchValue={onChangeSearchValue} 
+        searchValue={searchValue} 
+        items={users} 
+        isLoading={isLoading}
+        invites={invites}
+        onClickInvite={onClickInvite}
+      />
       {/* <Success /> */}
       {searchValue}
     </div>
