@@ -41,9 +41,9 @@ export const Users = ({ items, isLoading, onChangeSearchValue, searchValue, onCl
           )}
         </ul>
       )}
-      {invites.length > 0 && (
-      <button onClick={onClickSuccess} className="send-invite-btn">Отправить приглашение</button>
-      )}
+      
+      <button onClick={onClickSuccess} className="send-invite-btn disabled">Отправить приглашение</button>
+      
     </>
   );
 };
